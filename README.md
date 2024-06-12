@@ -1,5 +1,9 @@
 ## **API FRUTAS TROPICALES** ##
-![FrutasTropicales](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqY9abX5n9X3Fy2ocip66fEMVSgASPPUX_rw&s)
+<div>
+<p style = 'text-align:center;'>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5OaAviY9ld1c7MEAUL7lqsBmxEQmScsR0g&s" alt="FrutasTropicales" width="300px">
+</p>
+</div>
 
 Gestiona información sobre frutas tropicales y países de origen. Proporciona endpoints para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre diferentes recursos relacionados con las frutas.
 
