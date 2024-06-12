@@ -1,4 +1,4 @@
-## 🥭​🍍​🍌​🥥​🥝​🍓​**API FRUTAS TROPICALES**🥭​🍍​🍌​🥥​🥝​🍓​##
+## 🥭​🍍​🍌​🥥​🥝​🍓 ​**API FRUTAS TROPICALES** 🥭​🍍​🍌​🥥​🥝​🍓 ​##
 
 <p align="center" width="100%">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5OaAviY9ld1c7MEAUL7lqsBmxEQmScsR0g&s" alt="FrutasTropicales">
@@ -17,14 +17,14 @@ Instalar todas las dependencias necesarias con:
     npm install
 Luego, crea un archivo ".env" copiando los parametros de ".env_example" con tus datos.
 
-## **Uso** ##
+## **Uso** ⚙️​ ##
 
 Una vez que hayas instalado las dependencias, puedes iniciar el servidor ejecutando el siguiente comando:
 
     npm run dev
 El servidor estará en funcionamiento en http://localhost:3000 (o el puerto que hayas indicado en el archivo .env). Puedes usar Postman para realizar solicitudes HTTP a los endpoints proporcionados por la API.
 
-## **Endpoints**​🔎​ ##
+## **Endpoints**​ 🔎​ ##
 
 La API proporciona los siguientes endpoints:
 
