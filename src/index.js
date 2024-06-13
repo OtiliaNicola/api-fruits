@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 5001;
 
 const baseQuery = `SELECT 
 countries.name as country, 
+fruits.idFruit,
 fruits.name, 
 fruits.image, 
 fruits.description
@@ -78,13 +79,24 @@ api.get("/fruits/:id", async (req, res) => {
 api.post("/fruits", async (req, res) => {
     try {
         const conn = await getConnection();
-        const { name, image, description } = req.body;
-        const sqlInsert = "INSERT INTO fruits (name, image, description) VALUES (?,?,?)";
-        const [newFruit] = await conn.query(sqlInsert, [
+        const { name, image, description, countriesIds } = req.body;
+        // Inserto la fruta
+        const sqlInsertFruit = "INSERT INTO fruits (name, image, description) VALUES (?,?,?)";
+        const [newFruit] = await conn.query(sqlInsertFruit, [
             name,
             image,
             description,
         ]);
+
+        // Con el id obtenido, insertamos los paises en la tabla fruit_country
+        // Recorre el array de countriesIds recibido
+        for (const country_Id of countriesIds) {
+            // Por cada country_id inserta un nuevo registro en fruit_country utilizando el id de newFruit
+            await conn.query("INSERT INTO fruit_country (fruit_id, country_id) VALUES (?,?)", [
+                newFruit.insertId,
+                country_Id
+            ]);
+        }
         res.status(200).json({
             success: true,
             id: newFruit.insertId,
@@ -101,8 +113,8 @@ api.put("/fruits/:id", async (req, res) => {
         const conn = await getConnection();
         const idNewFruit = req.params.id;
         const newData = req.body;
-        const modifySql = "UPDATE fruits SET name = ?, image = ?, description = ? WHERE idFruit = ? ";
-        const [result] = await conn.query(modifySql, [
+        const updateFruit = "UPDATE fruits SET name = ?, image = ?, description = ? WHERE idFruit = ? ";
+        const [result] = await conn.query(updateFruit, [
             newData.name,
             newData.image,
             newData.description,
@@ -124,9 +136,12 @@ api.put("/fruits/:id", async (req, res) => {
 api.delete("/fruits/:id", async (req, res) => {
     try {
         const conn = await getConnection();
-        const idNewFruit = req.params.id;
-        const deleteSql = "DELETE FROM fruits WHERE idFruit = ? ";
-        const [result] = await conn.query(deleteSql, [idNewFruit]);
+        const idFruit = req.params.id;
+        // Primero eliminamos las relaciones que tenga la fruta con los paises
+        const deleteRelationsSql = "DELETE FROM fruit_country WHERE fruit_id = ? ";
+        await conn.query(deleteRelationsSql, [idFruit]);
+        const deleteFruitSql = "DELETE FROM fruits WHERE idFruit = ? ";
+        const [result] = await conn.query(deleteFruitSql, [idFruit]);
         if (result.affectedRows > 0) {
             res.status(200).json({ success: true, });
         } else {
