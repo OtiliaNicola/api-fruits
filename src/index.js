@@ -121,17 +121,6 @@ api.put("/fruits/:id", async (req, res) => {
             idFruit,
         ]);
         if (result.affectedRows > 0) {
-            // Primero eliminamos ls relaciones que ya existiesen
-            const deleteRelationsSql = "DELETE FROM fruit_country WHERE fruit_id = ? ";
-            await conn.query(deleteRelationsSql, [idFruit]);
-            // Recorre el array de countriesIds recibido
-            for (const country_Id of newData.countriesIds) {
-                // Por cada country_id inserta un nuevo registro en fruit_country 
-                await conn.query("INSERT INTO fruit_country (fruit_id, country_id) VALUES (?,?)", [
-                    idFruit,
-                    country_Id
-                ]);
-            }
             res.status(200).json({ success: true, });
         } else {
             res.status(200).json({ success: false, message: "No se ha actualizado la información." });
