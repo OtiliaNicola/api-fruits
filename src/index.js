@@ -11,6 +11,15 @@ api.use(express.json());
 //Especificar por el puerto que debe conectarse
 const PORT = process.env.PORT || 5001;
 
+const baseQuery = `SELECT 
+countries.name as country, 
+fruits.name, 
+fruits.image, 
+fruits.description
+FROM tropical_fruits.countries countries
+INNER JOIN tropical_fruits.fruit_country relTable ON countries.idCountry = relTable.country_id
+INNER JOIN tropical_fruits.fruits fruits ON relTable.fruit_id = fruits.idFruit`
+
 api.listen(PORT, () => {
     console.log(`Server running in port: http://localhost:${PORT}`)
 });
@@ -35,8 +44,7 @@ getConnection();
 api.get("/fruits", async (req, res) => {
     try {
         const conn = await getConnection();
-        const select = "SELECT * FROM fruits";
-        const [result] = await conn.query(select);
+        const [result] = await conn.query(baseQuery);
 
         await conn.end();
         res.status(200).json({
@@ -53,7 +61,7 @@ api.get("/fruits/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const conn = await getConnection();
-        const select = "SELECT * FROM fruits WHERE idFruit = ?";
+        const select = `${baseQuery} WHERE fruits.idFruit = ?`;
         const [result] = await conn.query(select, [id]); //Lo obtengo en la línea 53
         //Validación
         if (result.length === 0) {

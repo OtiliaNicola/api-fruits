@@ -1,4 +1,4 @@
-## 🥭​🍍​🍌​🥥​🥝​🍓 ​**API FRUTAS TROPICALES** 🥭​🍍​🍌​🥥​🥝​🍓 ​##
+## 🥭​🍍​🍌​🥥​🥝​🍓 ​**API FRUTAS TROPICALES** 🥭​🍍​🍌​🥥​🥝​🍓##
 
 <p align="center" width="100%">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5OaAviY9ld1c7MEAUL7lqsBmxEQmScsR0g&s" alt="FrutasTropicales">
@@ -6,7 +6,7 @@
 
 Gestiona información sobre frutas tropicales y países de origen. Proporciona endpoints para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre diferentes recursos relacionados con las frutas.
 
-## **Instalación** ⚙️ ​##
+## **Instalación**⚙️##
 
 Para utilizar esta API, primero debes clonar el repositorio desde GitHub:
 
