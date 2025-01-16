@@ -1,35 +1,39 @@
-## 🥭​🍍​🍌​🥥​🥝​🍓 ​**API FRUTAS TROPICALES** 🥭​🍍​🍌​🥥​🥝​🍓 ##
+## 🥭​🍍​🍌​🥥​🥝​🍓 ​**API TROPICAL FRUITS** 🥭​🍍​🍌​🥥​🥝​🍓 ##
 
 <p align="center" width="100%">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5OaAviY9ld1c7MEAUL7lqsBmxEQmScsR0g&s" alt="FrutasTropicales">
 </p>
 
-Gestiona información sobre frutas tropicales y países de origen. Proporciona endpoints para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre diferentes recursos relacionados con las frutas.
+Manages information on tropical fruits and countries of origin. Provides endpoints to perform CRUD (Create, Read, Update, Delete) operations on different resources related to fruits.
 
-## **Instalación** ⚙️ ##
+## **Installation** ⚙️ ##
 
-Para utilizar esta API, primero debes clonar el repositorio desde GitHub:
+To use this API, you must first clone the repository from GitHub:
 
     git clone https://github.com/Adalab/modulo-4-evaluacion-final-bpw-OtiliaNicola.git
 
-Instalar todas las dependencias necesarias con:
+Install all necessary dependencies with:
 
+    ```bash
     npm install
-Luego, crea un archivo ".env" copiando los parametros de ".env_example" con tus datos.
+    ```
+    
+Then, create an ‘.env’ file by copying the parameters from ‘.env_example’ with your data.
 
-## **Uso** ⚙️​ ##
+## **Use** ⚙️​ ##
 
-Una vez que hayas instalado las dependencias, puedes iniciar el servidor ejecutando el siguiente comando:
+Once you have installed the dependencies, you can start the server by running the following command:
 
+     ```bash
     npm run dev
-El servidor estará en funcionamiento en http://localhost:3000 (o el puerto que hayas indicado en el archivo .env). Puedes usar Postman para realizar solicitudes HTTP a los endpoints proporcionados por la API.
+    ```
+   
+The server will be running at http://localhost:3000 (or the port you specified in the .env file). You can use Postman to make HTTP requests to the endpoints provided by the API.
 
 ## **Endpoints**​ 🔎​ ##
 
-La API proporciona los siguientes endpoints:
-
-- GET /fruits: Obtiene la lista de frutas tropicales.
-- GET /fruits/:id: Obtiene los detalles de un registro específico.
-- POST /fruits: Crea un nuevo registro sobre la fruta que más te guste.
-- PUT /fruits/:id: Actualiza los detalles de un registro existente.
-- DELETE /fruits/:id: Elimina una fruta.
+- GET /fruits: Gets the list of tropical fruits.
+- GET /fruits/:id: Gets the details of a specific record.
+- POST /fruits: Creates a new record about the fruit you like the most.
+- PUT /fruits/:id: Update the details of an existing record.
+- DELETE /fruits/:id: Delete /fruits/:id: Deletes a record.
