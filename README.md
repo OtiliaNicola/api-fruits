@@ -14,9 +14,7 @@ To use this API, you must first clone the repository from GitHub:
 
 Install all necessary dependencies with:
 
-    ```bash
     npm install
-    ```
     
 Then, create an ‘.env’ file by copying the parameters from ‘.env_example’ with your data.
 
@@ -24,9 +22,7 @@ Then, create an ‘.env’ file by copying the parameters from ‘.env_example�
 
 Once you have installed the dependencies, you can start the server by running the following command:
 
-     ```bash
     npm run dev
-    ```
    
 The server will be running at http://localhost:3000 (or the port you specified in the .env file). You can use Postman to make HTTP requests to the endpoints provided by the API.
 
